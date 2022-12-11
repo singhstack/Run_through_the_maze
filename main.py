@@ -1,34 +1,51 @@
-# This is a sample Python script.
+from maze_builder import build, printmaze
+from maze_solver import dijkstras, find_entry_exit
+import timeit
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-'''Code Flow
-Run Through the maze
-    1. request user for inputs to build maze - which method to use
-        get length and width and return maze
-    2. Show the maze
-    3. User satisifed? Move on with Solving maze
-    4. Choose Method to solve the maze - solve maze using that method
-        BFS -
-        DFS -
-        Brute force -
-        Djikstra's Algorithm -
-        Have other methods in mind? Add yours and build code for it.
-    5. Show User the time taken,
-    6. Would you like to find out how long other methods take to solve this maze?
-    7. a) No? Game Ends with a summary
-    7. b) Yes? Solve Maze using other methods and show the time taken.
+
+timings_maze10 = {'dijk':[], 'bfs':[],'dfs':[],'backtracking':[]}
+timings_maze30 = {'dijk':[], 'bfs':[],'dfs':[],'backtracking':[]}
+timings_maze50 = {'dijk':[], 'bfs':[],'dfs':[],'backtracking':[]}
+dim = [10,30,50]
+iterations = 50
+for d in dim:
+    for i in range(iterations):
+        m = build(d, d)
+        start, end = find_entry_exit(m)
+        #Dijkstras
+        start_time = timeit.default_timer()
+        dijkstras(m, start, end)
+        elapsed = timeit.default_timer() - start_time
+        if d==10:
+            timings_maze10['dijk'].append(elapsed)
+        elif d==30:
+            timings_maze30['dijk'].append(elapsed)
+        elif d==50:
+            timings_maze50['dijk'].append(elapsed)
+        #BFS
+
+        #DFS
+
+        #Backtracking
+
+print(round(sum(timings_maze10['dijk'])/len(timings_maze10['dijk'])*1000,2))
+print(round(sum(timings_maze30['dijk'])/len(timings_maze30['dijk'])*1000,2))
+print(round(sum(timings_maze50['dijk'])/len(timings_maze50['dijk'])*1000,2))
+
+
+
+
 '''
+def __init__main():
+    print("Press Y to build a maze: ")
+    print("Enter height: ")
+    print("Enter width: ")
+    build(height,width)
+    print("Your maze has been built.")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+    Print("Which Algorithm would you like to use to solve the maze")
+
+    Djiks
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('Taran')
-    print('Debuuger running')
-    print("Code ended")
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+'''
