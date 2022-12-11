@@ -1,3 +1,5 @@
+from BFS_solver import BfsSolver
+from DFS_solver import DfsSolver
 def build(height,width):
     import random
     #cell/path denoted by  1
@@ -231,9 +233,25 @@ def printmaze(maze):
             string+=" "
 
         print(string)
-'''
-maze = build(height=10, width=6)
-printmaze(maze)'''
+
+# how to start DFS
+# # maze = build(height=10, width=5)
+# # printmaze(maze)
+# # dfs_path = DfsSolver(maze)
+# # solved_maze = dfs_path.SolveMaze()
+# # print("n/")
+# # printmaze(solved_maze)
+
+#how to start BFS
+# maze = build(height=5, width=5)
+# bfs_path = BfsSolver(maze)
+# solved_maze = bfs_path.SolveMaze()
+# printmaze(maze)
+# print("n/")
+# printmaze(solved_maze)
+
+
+
 
 
 
