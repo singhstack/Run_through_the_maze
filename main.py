@@ -1,5 +1,5 @@
 from maze_builder import build, printmaze
-from maze_solver import dijkstras, find_entry_exit
+from Dijkstras_solver import dijkstras, find_entry_exit
 from BFS_solver import BfsSolver
 from DFS_solver import DfsSolver
 import timeit
